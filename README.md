@@ -1,9 +1,15 @@
-# @tscircuit/import
+# @tscircuit/import-snippet
 
-Dynamically import a tscircuit snippet from the registry
+Dynamically import a tscircuit snippet from the registry. Great for quick
+scripts that need to import and build a circuit.
+
+> [!WARNING]
+> Do not use this inside of snippets, or whenever you're able to just do
+> `bun add @tsci/myname.mysnippet`, dynamic imports are not nearly as fast,
+> don't have lockfiles, it makes your code async and doesn't give you types!
 
 ```tsx
-import { importSnippet } from "@tscircuit/import"
+import { importSnippet } from "@tscircuit/import-snippet"
 import { Circuit } from "@tscircuit/core"
 
 const Flashlight = await importSnippet("seveibar/usb-c-flashlight")
@@ -16,6 +22,40 @@ circuit.add(<Flashlight />)
 In order to import a snippet, often other snippets have to be imported. This
 import system effectively downloads and bundles dependent snippets to keep the
 usage as simple as possible.
+
+## Usage without React/JSX
+
+Some nodejs folks might not want to have a jsx transpiler, no problem!
+
+```tsx
+import { importSnippet } from "@tscircuit/import-snippet"
+import { Circuit, createElement } from "@tscircuit/core"
+
+const Flashlight = await importSnippet("seveibar/usb-c-flashlight")
+
+const circuit = new Circuit()
+
+circuit.add(
+  createElement(Flashlight, {
+    ledColor: "red",
+  })
+)
+```
+
+## Specifying Types
+
+```tsx
+import { importSnippet } from "@tscircuit/import-snippet"
+import { Circuit } from "@tscircuit/core"
+
+const Flashlight = await importSnippet<{
+  ledColor: string
+}>("seveibar/usb-c-flashlight")
+
+const circuit = new Circuit()
+
+circuit.add(<Flashlight ledColor="red" />)
+```
 
 ## Acceptable Import URLs
 

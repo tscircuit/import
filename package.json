@@ -1,5 +1,5 @@
 {
-  "name": "@tscircuit/import",
+  "name": "@tscircuit/import-snippet",
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
