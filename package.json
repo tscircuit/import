@@ -1,13 +1,18 @@
 {
   "name": "@tscircuit/import-snippet",
-  "module": "index.ts",
   "type": "module",
+  "main": "dist/index.js",
+  "version": "0.0.1",
   "devDependencies": {
     "@tscircuit/core": "^0.0.265",
     "@types/bun": "latest",
     "@types/react": "^19.0.6",
     "debug": "^4.4.0",
+    "tsup": "^8.3.5",
     "typed-ky": "^0.0.4"
+  },
+  "scripts": {
+    "build": "tsup ./lib/index.ts --dts --format esm"
   },
   "peerDependencies": {
     "typescript": "^5.0.0",
