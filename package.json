@@ -3,16 +3,17 @@
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
-    "@rollup/browser": "^4.30.1",
-    "@rollup/plugin-commonjs": "^28.0.2",
-    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@tscircuit/core": "^0.0.265",
     "@types/bun": "latest",
+    "@types/react": "^19.0.6",
+    "debug": "^4.4.0",
     "typed-ky": "^0.0.4"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "react": "*",
+    "@tscircuit/core": "*",
+    "@tscircuit/math-utils": "*"
   },
-  "dependencies": {
-    "rollup": "^4.30.1"
-  }
+  "dependencies": {}
 }
