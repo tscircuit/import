@@ -2,7 +2,7 @@
   "name": "@tscircuit/import-snippet",
   "type": "module",
   "main": "dist/index.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "devDependencies": {
     "@tscircuit/core": "^0.0.265",
     "@types/bun": "latest",
