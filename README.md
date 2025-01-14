@@ -73,7 +73,7 @@ importSnippet("seveibar.usb-c-flashlight")
 You can configure an alternate registry globally with `setDefaultRegistry`
 
 ```tsx
-import { setDefaultRegistry } from "@tscircuit/import"
+import { setDefaultRegistry } from "@tscircuit/import-snippet"
 
 setDefaultRegistry("https://myregistry.mycompany.com")
 ```
@@ -81,9 +81,29 @@ setDefaultRegistry("https://myregistry.mycompany.com")
 You can also provide the registry as an option to `importSnippet`
 
 ```tsx
-import { importSnippet } from "@tscircuit/import"
+import { importSnippet } from "@tscircuit/import-snippet"
 
 importSnippet("seveibar/usb-c-flashlight", {
   registryUrl: "https://registry-api.tscircuit.com",
+})
+```
+
+## Injecting Dependencies
+
+You can inject a custom version of [@tscircuit/core](https://github.com/tscircuit/core)
+or other dependencies like [@tscircuit/math-utils](https://github.com/tscircuit/math-utils)
+by providing the "dependencies" property.
+
+If you do not inject dependencies, they will be loaded from the parent environment
+via "require" (not supported in all environments)
+
+```tsx
+import { importSnippet } from "@tscircuit/import-snippet"
+import * as tscircuitCore from "@tscircuit/core"
+
+const MyComponent = await importSnippet("seveibar/usb-c-flashlight", {
+  dependencies: {
+    "@tscircuit/core": tscircuitCore,
+  },
 })
 ```
