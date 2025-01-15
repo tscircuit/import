@@ -12,20 +12,18 @@ test("should import with injected dependencies", async () => {
         this.mockProperty = true
       }
       mockProperty: boolean
-    }
+    },
   }
 
   const Flashlight = await importSnippet("seveibar/usb-c-flashlight", {
     dependencies: {
-      "@tscircuit/core": mockCore
-    }
+      "@tscircuit/core": mockCore,
+    },
   })
 
   const circuit = new mockCore.Circuit()
-  
-  circuit.add(
-    <Flashlight />
-  )
+
+  circuit.add(<Flashlight />)
 
   expect(circuit.mockProperty).toBe(true)
 })
