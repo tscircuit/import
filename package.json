@@ -21,5 +21,19 @@
     "@tscircuit/core": "*",
     "@tscircuit/math-utils": "*"
   },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "@tscircuit/core": {
+      "optional": true
+    },
+    "@tscircuit/math-utils": {
+      "optional": true
+    }
+  },
   "dependencies": {}
 }
